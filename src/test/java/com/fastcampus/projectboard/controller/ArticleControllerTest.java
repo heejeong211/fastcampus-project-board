@@ -63,7 +63,7 @@ class ArticleControllerTest {
         given(paginationService.getPaginationBarNumbers(anyInt(), anyInt())).willReturn(List.of(0, 1, 2, 3, 4));
 
         mvc.perform(get("/articles"))
-                .andExpect(status().isOk())
+                .andExpect(status().isOk()) // 정상호출인지?
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML)) // view 이기 때문에 응답 타입은 text/html
                 .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles")) // model 에 해당 이름으로 넘긴 데이터가 있는지 체크
@@ -346,23 +346,23 @@ class ArticleControllerTest {
                 "content",
                 "hashtag",
                 LocalDateTime.now(),
-                "dongmin",
+                "hhhjjj",
                 LocalDateTime.now(),
-                "dongmin"
+                "hhhjjj"
         );
     }
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                "dongmin",
+                "hhhjjj",
                 "1234",
-                "dongmin@naver.com",
-                "dongmin",
+                "hhhjjj@naver.com",
+                "hhhjjj",
                 "memo",
                 LocalDateTime.now(),
-                "dongmin",
+                "hhhjjj",
                 LocalDateTime.now(),
-                "dongmin"
+                "hhhjjj"
         );
     }
 }
